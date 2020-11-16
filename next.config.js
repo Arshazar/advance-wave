@@ -1,3 +1,3 @@
 module.exports = {
-    assetPrefix: '/advance-svg/'
+    assetPrefix: '/advance-wave/'
 }
