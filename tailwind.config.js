@@ -1,4 +1,12 @@
 module.exports = {
-    purge: ['./components/**/*.js', './pages/**/*.js'],
-    target: 'relaxed'
+    future: {
+        removeDeprecatedGapUtilities: true,
+        purgeLayersByDefault: true
+    },
+    purge: [],
+    theme: {
+        extend: {}
+    },
+    variants: {},
+    plugins: []
 }
