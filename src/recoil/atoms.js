@@ -71,6 +71,16 @@ const themeColours = atom({
     }
 })
 
+const maxLayers = atom({
+    key: 'maxLayersKey',
+    default: 10
+})
+
+const harmonyColours = atom({
+    key: 'harmonyColoursKey',
+    default: null
+})
+
 export {
     wave,
     colourMode,
@@ -82,5 +92,7 @@ export {
     gradientAngle,
     gradientRadius,
     flipX,
-    flipY
+    flipY,
+    maxLayers,
+    harmonyColours
 }

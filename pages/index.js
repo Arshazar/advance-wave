@@ -42,7 +42,7 @@ export default function Home() {
                     background: themeEl === 'light' ? themeColoursEl.light : themeColoursEl.dark
                 }}>
                 <div
-                    className="absolute right-0 italic text-sm tracking-widest cursor-default hidden md:block"
+                    className="absolute z-40 right-0 italic text-sm tracking-widest cursor-default hidden md:block"
                     style={{ color: themeEl === 'light' ? '#000' : '#fff', margin: '10px' }}>
                     Coded with full of ❤ by Arshazar
                 </div>

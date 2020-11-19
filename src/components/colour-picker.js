@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
 import { wave, gradientColours } from '../recoil/atoms'
+import { HarmonyPicker } from './harmony-picker'
 
 export const ColourPicker = ({ colourType }) => {
     const [waveEl, setWaveEl] = useRecoilState(wave)
@@ -20,7 +21,7 @@ export const ColourPicker = ({ colourType }) => {
     }
 
     return (
-        <div className="flex items-center m-auto my-3 mt-2">
+        <div className="flex justify-center my-3 mt-2">
             {colourType === 'gradient' ? (
                 <>
                     <input
@@ -39,12 +40,16 @@ export const ColourPicker = ({ colourType }) => {
                     />
                 </>
             ) : (
-                <input
-                    type="color"
-                    name="colour"
-                    value={waveEl.fillColour}
-                    onChange={(e) => handleColour(0, e.target.value)}
-                />
+                <div className="flex flex-col justify-center items-center w-full">
+                    <input
+                        type="color"
+                        name="colour"
+                        className="mb-3"
+                        value={waveEl.fillColour}
+                        onChange={(e) => handleColour(0, e.target.value)}
+                    />
+                    <HarmonyPicker />
+                </div>
             )}
         </div>
     )

@@ -9,7 +9,9 @@ import {
     theme,
     themeColours,
     flipX,
-    flipY
+    flipY,
+    harmonyColours,
+    maxLayers
 } from '../../recoil/atoms'
 import { Select } from './select'
 import { Download } from '../download'
@@ -21,6 +23,7 @@ export const Toolbar = () => {
     const [open, setOpen] = useRecoilState(expanderOpen)
     const [themeEl, setThemeEl] = useRecoilState(theme)
     const [themeColoursEl, setThemeColoursEl] = useRecoilState(themeColours)
+    const [maxLayersEl, setMaxLayersEl] = useRecoilState(maxLayers)
     const [flipXEl, setFlipXEl] = useRecoilState(flipX)
     const [flipYEl, setFlipYEl] = useRecoilState(flipY)
 
@@ -104,7 +107,7 @@ export const Toolbar = () => {
 
     return (
         <div
-            className={`fixed h-full overflow-x-auto shadow-lg top-0 left-0 box-border z-50 sm:w-1/2 md:w-1/3 lg:w-1/4 toolbar${
+            className={`fixed h-full shadow-lg top-0 left-0 box-border z-50 sm:w-1/2 md:w-1/3 lg:w-1/4 toolbar${
                 open ? ' open' : ''
             }`}
             style={{
@@ -155,14 +158,16 @@ export const Toolbar = () => {
                         </label>
                         <input
                             className="w-3/4 h-full overflow-hidden text-center rounded-lg appearance-none border-2 range-input"
-                            value={waveEl.layerCount}
+                            value={
+                                waveEl.layerCount >= maxLayersEl ? maxLayersEl : waveEl.layerCount
+                            }
                             onChange={(e) => onChange('layer', e.target.value)}
                             type="range"
                             id="layer"
                             name="layer"
                             min={2}
                             step={1}
-                            max={10}
+                            max={maxLayersEl}
                         />
                     </div>
                     <div className="flex justify-center my-3 w-full">
