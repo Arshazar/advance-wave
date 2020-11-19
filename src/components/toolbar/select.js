@@ -18,8 +18,7 @@ export const Select = ({ data, children }) => {
                                     : ''
                             }`}
                             style={{
-                                background:
-                                    dataType === el.name ? `var(--colour-green)` : 'transparent',
+                                background: dataType === el.name ? `#00a693` : 'transparent',
                                 width: `calc(100% / ${elements.length})`
                             }}
                             onClick={el.onClick}>
