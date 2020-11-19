@@ -1,7 +1,7 @@
 import { atom } from 'recoil'
 
 const wave = atom({
-    key: 'waveData',
+    key: 'waveDataKey',
     default: {
         type: 'smooth',
         height: 500,
@@ -16,12 +16,12 @@ const wave = atom({
 })
 
 const colourMode = atom({
-    key: 'colourMode',
+    key: 'colourModeKey',
     default: 'colour'
 })
 
 const gradientColours = atom({
-    key: 'gradientColours',
+    key: 'gradientColoursKey',
     default: {
         colour1: '#c81d11',
         colour2: '#1c39bb'
@@ -29,12 +29,12 @@ const gradientColours = atom({
 })
 
 const gradientType = atom({
-    key: 'gradientType',
+    key: 'gradientTypeKey',
     default: 'linear'
 })
 
 const gradientAngle = atom({
-    key: 'gradientAngle',
+    key: 'gradientAngleKey',
     default: 0
 })
 
@@ -44,27 +44,27 @@ const gradientRadius = atom({
 })
 
 const expanderOpen = atom({
-    key: 'expanderStatus',
+    key: 'expanderStatusKey',
     default: false
 })
 
 const theme = atom({
-    key: 'theme',
+    key: 'themeKey',
     default: 'light'
 })
 
 const flipX = atom({
-    key: 'flipX',
+    key: 'flipXKey',
     default: 1
 })
 
 const flipY = atom({
-    key: 'flipY',
+    key: 'flipYKey',
     default: 1
 })
 
 const themeColours = atom({
-    key: 'themeColour',
+    key: 'themeColourKey',
     default: {
         light: '#fff',
         dark: '#000'
