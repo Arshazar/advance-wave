@@ -117,7 +117,7 @@
 
 .randomiser-text {
     margin: 0;
-    line-height: 0;
+    line-height: 1;
     animation: opAnim 2s infinite;
 }
 
