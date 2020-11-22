@@ -9,7 +9,7 @@ export const Expander = () => {
     return (
         <div>
             <div
-                className="flex absolute h-50 items-center px-4 cursor-pointer expander"
+                className="flex absolute items-center px-4 cursor-pointer expander top-0"
                 style={{ color: themeEl === 'light' ? '#000' : '#fff' }}
                 onClick={() => setOpen(!open)}>
                 {/* <svg
