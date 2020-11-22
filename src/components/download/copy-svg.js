@@ -24,9 +24,7 @@ export const CopySvg = () => {
 
     return (
         <div>
-            <div
-                className="flex my-5 text-sm justify-center text-center"
-                style={{ color: '#bfbfbf' }}>
+            <div className="flex my-5 text-sm justify-center text-center">
                 {!isCopied ? (
                     <div
                         id="copy-svg"

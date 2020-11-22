@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useRecoilState } from 'recoil'
 import { Select } from './toolbar/select'
-import { wave, harmonyColours, maxLayers } from '../recoil/atoms'
+import { wave, harmonyColours, maxLayers, oneColourMode } from '../recoil/atoms'
 
 export const HarmonyPicker = () => {
     const [waveEl, setWaveEl] = useRecoilState(wave)
     const [harmonyTypeEl, setHarmonyType] = useRecoilState(harmonyColours)
     const [maxLayersEl, setMaxLayersEl] = useRecoilState(maxLayers)
-    const [colourType, setColourType] = useState('simple')
+    const [colourType, setColourType] = useRecoilState(oneColourMode)
 
     const coloursData = {
         elements: [
@@ -34,7 +34,7 @@ export const HarmonyPicker = () => {
 
     return (
         <div className="m-auto w-full">
-            <div className="m-auto w-4/6">
+            <div className="m-auto w-full">
                 <Select data={coloursData} />
             </div>
             {colourType === 'harmony' ? (

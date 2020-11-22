@@ -25,7 +25,7 @@ export const GradientTools = ({ colourType }) => {
     }
 
     return colourType === 'gradient' ? (
-        <div className="w-4/6 m-auto">
+        <div className="w-full m-auto">
             <Select data={gradData} />
             {gradType === 'linear' ? (
                 <div className="flex justify-center my-3 w-full">

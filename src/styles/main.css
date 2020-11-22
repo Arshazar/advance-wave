@@ -11,6 +11,13 @@ body {
     font-family: 'SFPro';
 }
 
+.header {
+    background: transparent;
+    -webkit-box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.6);
+}
+
 .expander {
     z-index: 2;
 }
@@ -20,10 +27,13 @@ body {
 }
 
 .toolbar {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-out;
+    /* transform: translateX(-100%);
+    transition: transform 0.3s ease-out; */
+    opacity: 0;
     overflow-y: auto;
     scrollbar-width: none;
+    top: 1.75em;
+    left: 0.75em;
 }
 
 .toolbar::-webkit-scrollbar {
@@ -32,99 +42,8 @@ body {
 }
 
 .toolbar.open {
-    transform: translateX(0);
-}
-
-.range-input {
-    -webkit-appearance: none;
-    background: transparent;
-    border: none;
-    height: 20px;
-    margin: auto;
-}
-.range-input::-moz-focus-outer {
-    border: 0;
-}
-.range-input:focus {
-    outline: 0;
-}
-
-.range-input:focus::-ms-fill-lower {
-    background: #00a693;
-}
-
-.range-input::-webkit-slider-runnable-track {
-    cursor: default;
-    height: 4px;
-    transition: all 0.2s ease;
-    width: 100%;
-    background: #eceff1;
-    /* border: 2px solid #cfd8dc; */
-    border-radius: 5px;
-}
-.range-input::-webkit-slider-thumb {
-    background: #00a693;
-    /* border: 2px solid #eceff1; */
-    border-radius: 50%;
-    box-sizing: border-box;
-    cursor: default;
-    height: 20px;
-    width: 20px;
-    -webkit-appearance: none;
-    margin-top: -8px;
-}
-.range-input::-moz-range-track {
-    cursor: default;
-    height: 8px;
-    transition: all 0.2s ease;
-    width: 100%;
-    background: #eceff1;
-    border-radius: 5px;
-    height: 4px;
-}
-.range-input::-moz-range-thumb {
-    background: #00a693;
-    /* border: 2px solid #eceff1; */
-    border-radius: 50%;
-    box-sizing: border-box;
-    cursor: default;
-    height: 20px;
-    width: 20px;
-}
-.range-input::-ms-track {
-    cursor: default;
-    height: 8px;
-    transition: all 0.2s ease;
-    width: 100%;
-    background: transparent;
-    border-color: transparent;
-    border-width: 12px 0;
-    color: transparent;
-}
-.range-input::-ms-fill-lower {
-    background: #00a693;
-    border-radius: 10px;
-}
-.range-input::-ms-fill-upper {
-    background: #eceff1;
-    border-radius: 10px;
-}
-.range-input::-ms-thumb {
-    background: #00a693;
-    border: 2px solid #eceff1;
-    border-radius: 50%;
-    box-sizing: border-box;
-    cursor: default;
-    height: 20px;
-    width: 20px;
-}
-.range-input:disabled::-webkit-slider-thumb,
-.range-input:disabled::-moz-range-thumb,
-.range-input:disabled::-ms-thumb,
-.range-input:disabled::-webkit-slider-runnable-track,
-.range-input:disabled::-ms-fill-lower,
-.range-input:disabled::-ms-fill-upper {
-    cursor: not-allowed;
+    /* transform: translateX(0); */
+    opacity: 1;
 }
 
 .randomiser-text {
@@ -145,4 +64,78 @@ body {
     100% {
         opacity: 0.4;
     }
+}
+
+input[type='range'] {
+    margin: auto;
+    -webkit-appearance: none;
+    position: relative;
+    overflow: hidden;
+    height: 26px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 40px; /* iOS */
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/*
+ * 1. Set to 0 width and remove border for a slider without a thumb
+ */
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px; /* 1 */
+    height: 22px;
+    background: #00a693;
+    box-shadow: -100vw 0 0 calc(100vw - 13px) #00a693;
+    /* border: 3px solid #fff; 1 */
+    border-radius: 50%;
+}
+
+input[type='range']::-moz-range-track {
+    height: 22px;
+    background: #ddd;
+}
+
+input[type='range']::-moz-range-thumb {
+    background: #00a693;
+    height: 22px;
+    width: 22px;
+    border: 3px solid #999;
+    border-radius: 50% !important;
+    box-shadow: -100vw 0 0 calc(100vw - 13px) #00a693;
+    box-sizing: border-box;
+}
+
+input[type='range']::-ms-fill-lower {
+    background: #00a693;
+}
+
+input[type='range']::-ms-thumb {
+    background: #fff;
+    /* border: 3px solid #999; */
+    height: 22px;
+    width: 22px;
+    box-sizing: border-box;
+}
+
+input[type='range']::-ms-ticks-after {
+    display: none;
+}
+
+input[type='range']::-ms-ticks-before {
+    display: none;
+}
+
+input[type='range']::-ms-track {
+    background: #ddd;
+    color: transparent;
+    height: 22px;
+    border: none;
+}
+
+input[type='range']::-ms-tooltip {
+    display: none;
 }

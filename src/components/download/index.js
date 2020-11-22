@@ -2,6 +2,7 @@ import React from 'react'
 import { useRecoilState } from 'recoil'
 import { theme } from '../../recoil/atoms'
 import * as savePng from 'save-svg-as-png'
+import { CopySvg } from './copy-svg'
 
 export const Download = () => {
     const [themeEl, setThemeEl] = useRecoilState(theme)
@@ -32,11 +33,12 @@ export const Download = () => {
     }
 
     return (
-        <div id="links" className="flex flex-col relative w-full">
+        <div
+            id="links"
+            className="flex h-40 flex-col relative items-center p-2 m-0 rounded-2xl"
+            style={{ background: 'rgba(255,255,255,.8)' }}>
             <p className="cursor-default">Save as:</p>
-            <div
-                className="flex justify-around"
-                style={{ color: themeEl === 'light' ? '#000' : '#fff' }}>
+            <div className="flex justify-around">
                 <div className="m-3 cursor-pointer" onClick={() => downloadSvg()}>
                     SVG
                 </div>
@@ -45,6 +47,7 @@ export const Download = () => {
                     PNG
                 </a>
             </div>
+            <CopySvg />
         </div>
     )
 }

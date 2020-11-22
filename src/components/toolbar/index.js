@@ -15,7 +15,6 @@ import {
 } from '../../recoil/atoms'
 import { Select } from './select'
 import { Download } from '../download'
-import { CopySvg } from './copy-svg'
 
 export const Toolbar = () => {
     const [waveEl, setWaveEl] = useRecoilState(wave)
@@ -29,8 +28,8 @@ export const Toolbar = () => {
 
     const closeSvg = (
         <svg
-            width="40"
-            height="40"
+            width="20"
+            height="20"
             xmlns="http://www.w3.org/2000/svg"
             id="close"
             viewBox="0 0 744.09 1052.4"
@@ -38,7 +37,7 @@ export const Toolbar = () => {
             <g id="layer1">
                 <g
                     id="g3763"
-                    transform="matrix(.91837 0 0 .91837 47.587 10.944)"
+                    transform="matrix(.81837 0 0 .81837 47.587 10.844)"
                     stroke={themeEl === 'light' ? themeColoursEl.dark : themeColoursEl.light}
                     strokeLinecap="round"
                     strokeWidth="87.45"
@@ -107,23 +106,25 @@ export const Toolbar = () => {
 
     return (
         <div
-            className={`fixed h-full shadow-lg top-0 left-0 box-border z-50 sm:w-1/2 md:w-1/3 lg:w-1/4 toolbar${
+            className={`fixed bg-transparent box-border z-50 w-5/6 md:w-1/2 lg:w-1/3 toolbar${
                 open ? ' open' : ''
-            }`}
-            style={{
-                background: themeEl === 'light' ? themeColoursEl.light : themeColoursEl.dark,
-                color: themeEl === 'light' ? '#000' : '#fff'
-            }}>
-            <div>
-                <div className="flex relative left-0 top-0 w-full justify-end py-2 px-4">
+            }`}>
+            <div className="w-full absolute bg-white opacity-25 rounded-2xl h-full" />
+            <div className="relative">
+                {/* <div className="flex relative left-0 top-0 w-full justify-end h-6 bg-transparent">
                     <p onClick={() => setOpen(false)} className="cursor-pointer">
                         {closeSvg}
                     </p>
-                </div>
-                <div className="flex flex-col relative p-5">
-                    <Select data={waveData} />
-                    <div className="flex justify-center my-3 w-full">
-                        <label htmlFor="waves" className="text-sm text-left m-auto">
+                </div> */}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 relative p-2 m-1">
+                    <div className="rounded-2xl p-2" style={{ background: 'rgba(255,255,255,.8)' }}>
+                        <Select data={waveData} />
+                    </div>
+                    <div
+                        className="flex justify-center items-center rounded-2xl p-2 h-12"
+                        style={{ background: 'rgba(255,255,255,.8)' }}>
+                        <label htmlFor="waves" className="text-sm text-left m-auto mr-1">
                             Waves
                         </label>
                         <input
@@ -136,8 +137,10 @@ export const Toolbar = () => {
                         />
                     </div>
 
-                    <div className="flex justify-center my-3 w-full">
-                        <label htmlFor="height" className="text-sm text-left m-auto">
+                    <div
+                        className="flex justify-center my-3 rounded-2xl p-2 m-0"
+                        style={{ background: 'rgba(255,255,255,.8)' }}>
+                        <label htmlFor="height" className="text-sm text-left m-auto mr-1">
                             Height
                         </label>
                         <input
@@ -152,8 +155,10 @@ export const Toolbar = () => {
                             max={660}
                         />
                     </div>
-                    <div className="flex justify-center my-3 w-full">
-                        <label htmlFor="layer" className="text-sm text-left m-auto">
+                    <div
+                        className="flex justify-center my-3 p-2 rounded-2xl m-1"
+                        style={{ background: 'rgba(255,255,255,.8)' }}>
+                        <label htmlFor="layer" className="text-sm text-left m-auto mr-1">
                             Layers
                         </label>
                         <input
@@ -170,7 +175,9 @@ export const Toolbar = () => {
                             max={maxLayersEl}
                         />
                     </div>
-                    <div className="flex justify-center my-3 w-full">
+                    <div
+                        className="flex justify-center my-3 rounded-2xl p-2 m-1"
+                        style={{ background: 'rgba(255,255,255,.8)' }}>
                         <label htmlFor="degree" className="text-sm text-left m-auto">
                             FlipX
                         </label>
@@ -186,7 +193,9 @@ export const Toolbar = () => {
                             max={1}
                         />
                     </div>
-                    <div className="flex justify-center my-3 w-full">
+                    <div
+                        className="flex justify-center my-3 rounded-2xl p-2 m-1"
+                        style={{ background: 'rgba(255,255,255,.8)' }}>
                         <label htmlFor="degree" className="text-sm text-left m-auto">
                             FlipY
                         </label>
@@ -202,17 +211,18 @@ export const Toolbar = () => {
                             max={1}
                         />
                     </div>
-                    <Select
-                        data={colourData}
-                        children={
-                            <>
-                                <ColourPicker colourType={colourType} />
-                                <GradientTools colourType={colourType} />
-                            </>
-                        }
-                    />
+                    <div className="rounded-2xl p-2" style={{ background: 'rgba(255,255,255,.8)' }}>
+                        <Select
+                            data={colourData}
+                            children={
+                                <>
+                                    <ColourPicker colourType={colourType} />
+                                    <GradientTools colourType={colourType} />
+                                </>
+                            }
+                        />
+                    </div>
                     <Download />
-                    <CopySvg />
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Head from 'next/head'
 import { Svg } from '../src/components/svg'
 import { Toolbar } from '../src/components/toolbar'
-import { Expander } from '../src/components/expander'
+import { Header } from '../src/components/header'
 import { Backdrop } from '../src/components/toolbar/backdrop'
 import { Randomiser } from '../src/components/randomiser'
 import { theme, themeColours, wave, flipY } from '../src/recoil/atoms'
@@ -41,13 +41,8 @@ export default function Home() {
                 style={{
                     background: themeEl === 'light' ? themeColoursEl.light : themeColoursEl.dark
                 }}>
-                <div
-                    className="absolute z-40 right-0 italic text-sm tracking-widest cursor-default hidden md:block"
-                    style={{ color: themeEl === 'light' ? '#000' : '#fff', margin: '10px' }}>
-                    Coded with full of ❤ by Arshazar
-                </div>
+                <Header />
                 <Toolbar />
-                <Expander />
                 <Backdrop />
                 <div
                     className={`w-full absolute bg-transparent`}

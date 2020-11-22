@@ -20,6 +20,11 @@ const colourMode = atom({
     default: 'colour'
 })
 
+const oneColourMode = atom({
+    key: 'oneColourModeKey',
+    default: 'simple'
+})
+
 const gradientColours = atom({
     key: 'gradientColoursKey',
     default: {
@@ -66,8 +71,8 @@ const flipY = atom({
 const themeColours = atom({
     key: 'themeColourKey',
     default: {
-        light: '#fff',
-        dark: '#000'
+        light: 'rgba(247, 127, 190, .5)',
+        dark: '#1c1c1c'
     }
 })
 
@@ -94,5 +99,6 @@ export {
     flipX,
     flipY,
     maxLayers,
-    harmonyColours
+    harmonyColours,
+    oneColourMode
 }
