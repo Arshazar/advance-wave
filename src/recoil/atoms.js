@@ -4,14 +4,18 @@ const wave = atom({
     key: 'waveDataKey',
     default: {
         type: 'smooth',
-        height: 500,
+        height: 300,
         width: 1440,
         segmentCount: 4,
-        layerCount: 2,
+        layerCount: 1,
         variance: 0.75,
         strokeWidth: 0,
         fillColour: '#32127a',
-        strokeColour: 'none'
+        strokeColour: 'none',
+        ratio: {
+            height: 500,
+            width: 1440
+        }
     }
 })
 
@@ -86,6 +90,16 @@ const harmonyColours = atom({
     default: null
 })
 
+const backgroundColour = atom({
+    key: 'backgroundColourKey',
+    default: 'transparent'
+})
+
+const fullScreenState = atom({
+    key: 'fullscreenKey',
+    default: false
+})
+
 export {
     wave,
     colourMode,
@@ -100,5 +114,7 @@ export {
     flipY,
     maxLayers,
     harmonyColours,
-    oneColourMode
+    oneColourMode,
+    backgroundColour,
+    fullScreenState
 }

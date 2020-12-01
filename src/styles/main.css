@@ -9,6 +9,8 @@
 
 body {
     font-family: 'SFPro';
+    max-height: 100vh;
+    max-height: -webkit-fill-available;
 }
 
 .header {
@@ -34,6 +36,9 @@ body {
     scrollbar-width: none;
     top: 1.75em;
     left: 0.75em;
+    position: abolute;
+    max-height: 90vh;
+    background: rgba(255,255,255,.25);
 }
 
 .toolbar::-webkit-scrollbar {
@@ -138,4 +143,12 @@ input[type='range']::-ms-track {
 
 input[type='range']::-ms-tooltip {
     display: none;
+}
+
+input[type='color'] {
+    outline: none;
+}
+
+.fscreen-icon svg path {
+    mix-blend-mode: difference;
 }

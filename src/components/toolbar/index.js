@@ -65,6 +65,7 @@ export const Toolbar = () => {
             default:
                 break
         }
+        console.log(waveEl.layerCount)
     }
 
     const waveData = {
@@ -106,10 +107,9 @@ export const Toolbar = () => {
 
     return (
         <div
-            className={`fixed bg-transparent box-border z-50 w-5/6 md:w-1/2 lg:w-1/3 toolbar${
+            className={`fixed bg-transparent box-border rounded-2xl z-50 w-5/6 md:w-1/2 lg:w-1/3 toolbar${
                 open ? ' open' : ''
             }`}>
-            <div className="w-full absolute bg-white opacity-25 rounded-2xl h-full" />
             <div className="relative">
                 {/* <div className="flex relative left-0 top-0 w-full justify-end h-6 bg-transparent">
                     <p onClick={() => setOpen(false)} className="cursor-pointer">
@@ -150,9 +150,9 @@ export const Toolbar = () => {
                             type="range"
                             id="height"
                             name="height"
-                            min={100}
-                            step={10}
-                            max={660}
+                            min={waveEl.ratio.height / 5}
+                            step={waveEl.ratio.height / 10}
+                            max={waveEl.ratio.height}
                         />
                     </div>
                     <div
@@ -170,7 +170,7 @@ export const Toolbar = () => {
                             type="range"
                             id="layer"
                             name="layer"
-                            min={2}
+                            min={1}
                             step={1}
                             max={maxLayersEl}
                         />

@@ -2,28 +2,49 @@ import { computeControlPoints } from './bezier-spline'
 const svgns = 'http://www.w3.org/2000/svg'
 
 // layercount is default to 2. Increasing the number would stack up n-1 waves.
-function generatePoints(width, height, segmentCount, layerCount, variance) {
+function generatePoints(width, height, segmentCount, layerCount, variance, ratio) {
     const cellWidth = width / segmentCount
-    const cellHeight = height / layerCount
+    const cellHeight = ratio.height - Number(height)
     const moveLimitX = cellWidth * variance * 0.5
     const moveLimitY = cellHeight * variance
 
     const points = []
-    for (let y = cellHeight; y < height; y += cellHeight) {
+    let yPoints = [cellHeight]
+    for (let i = 1; i < layerCount; i++) {
+        yPoints.push((yPoints[i - 1] * 3) / 2)
+    }
+
+    for (let j = 0; j < layerCount; j++) {
+        const y = yPoints[j]
         let pointsPerLayer = []
         pointsPerLayer.push({ x: 0, y: Math.floor(y) })
         for (let x = cellWidth; x < width; x += cellWidth) {
             //@anup: this decides whether a segment is crest or trough
-            const varietalY = y - moveLimitY / 1 + Math.random() * moveLimitY
-            const varietalX = x - moveLimitX / 1 + Math.random() * moveLimitX
+            const varietalY = y - moveLimitY / 4 + Math.random() * moveLimitY
+            const varietalX = x - moveLimitX / 4 + Math.random() * moveLimitX
             pointsPerLayer.push({
-                x: Math.ceil(varietalX),
-                y: Math.ceil(varietalY)
+                x: Math.floor(varietalX),
+                y: Math.floor(varietalY)
             })
         }
         pointsPerLayer.push({ x: width, y: Math.floor(y) })
         points.push(pointsPerLayer)
     }
+    // for (let y = cellHeight; y < height; y += cellHeight) {
+    //     let pointsPerLayer = []
+    //     pointsPerLayer.push({ x: 0, y: Math.floor(y) })
+    //     for (let x = cellWidth; x < width; x += cellWidth) {
+    //         //@anup: this decides whether a segment is crest or trough
+    //         const varietalY = y - moveLimitY / 2 + Math.random() * moveLimitY
+    //         const varietalX = x - moveLimitX / 2 + Math.random() * moveLimitX
+    //         pointsPerLayer.push({
+    //             x: Math.ceil(varietalX),
+    //             y: Math.ceil(varietalY)
+    //         })
+    //     }
+    //     pointsPerLayer.push({ x: width, y: Math.floor(y) })
+    //     points.push(pointsPerLayer)
+    // }
     return points
 }
 
@@ -81,7 +102,8 @@ export class Wavery {
             this.properties.height,
             this.properties.segmentCount,
             this.properties.layerCount,
-            this.properties.variance
+            this.properties.variance,
+            this.properties.ratio
         )
     }
 
@@ -93,8 +115,8 @@ export class Wavery {
             pathList.push(
                 generateClosedPath(
                     this.points[i],
-                    { x: 0, y: this.properties.height },
-                    { x: this.properties.width, y: this.properties.height },
+                    { x: 0, y: this.properties.ratio.height },
+                    { x: this.properties.width, y: this.properties.ratio.height },
                     this.properties.fillColour,
                     this.properties.strokeColour,
                     this.properties.strokeWidth,
@@ -106,7 +128,7 @@ export class Wavery {
         const svgData = {
             svg: {
                 width: this.properties.width,
-                height: this.properties.height,
+                height: this.properties.ratio.height,
                 xmlns: svgns,
                 path: pathList
             }

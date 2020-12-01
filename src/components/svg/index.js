@@ -10,7 +10,9 @@ import {
     flipX,
     flipY,
     harmonyColours,
-    maxLayers
+    maxLayers,
+    backgroundColour,
+    fullScreenState
 } from '../../recoil/atoms'
 import { linearPoints, OPACITY_NUMS } from '../../constants'
 
@@ -28,6 +30,8 @@ export const Svg = ({ path }) => {
     const [flipYEl, setFlipYEl] = useRecoilState(flipY)
     const [harmonyType, setHarmonyType] = useRecoilState(harmonyColours)
     const [maxLayersEl, setMaxLayersEl] = useRecoilState(maxLayers)
+    const [bgColourEl, setBgColourEl] = useRecoilState(backgroundColour)
+    const [fscreenState, setFscreenState] = useRecoilState(fullScreenState)
     const [colours, setColours] = useState(waveEl.fillColour)
 
     const waves_num = path.length
@@ -45,12 +49,25 @@ export const Svg = ({ path }) => {
             const harmony = Object.values(harmonies)
             const harmonySet = harmony[harmonyType]
             setColours(harmonySet)
-            setMaxLayersEl(harmonySet.length + 1)
+            setMaxLayersEl(harmonySet.length)
+            setWaveEl({ ...waveEl, layerCount: Number(harmonySet.length) })
         } else {
             setHarmonyType(null)
             setWaveEl({ ...waveEl })
         }
     }, [harmonyType, waveEl.fillColour])
+
+    useEffect(() => {
+        if (window) {
+            setWaveEl({
+                ...waveEl,
+                ratio: {
+                    width: window.innerWidth,
+                    height: window.innerHeight
+                }
+            })
+        }
+    }, [fscreenState])
 
     const svg = (
         <svg
@@ -60,9 +77,9 @@ export const Svg = ({ path }) => {
             baseProfile="full"
             width="100%"
             height="100%"
-            viewBox={`0 0 1440 ${waveEl.height}`}
+            viewBox={`0 0 ${waveEl.ratio.width} ${waveEl.ratio.height}`}
             xmlns="http://www.w3.org/2000/svg">
-            {/* <rect width="100%" height="100%" fill="green" /> */}
+            <rect width={waveEl.ratio.width} height={waveEl.ratio.height} fill={bgColourEl} />
             {path.map((p, i) => {
                 return colourModeEl === 'gradient' ? (
                     gradientTypeEl === 'linear' ? (

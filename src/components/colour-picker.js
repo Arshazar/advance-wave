@@ -1,11 +1,12 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
-import { wave, gradientColours } from '../recoil/atoms'
+import { wave, gradientColours, backgroundColour } from '../recoil/atoms'
 import { HarmonyPicker } from './harmony-picker'
 
 export const ColourPicker = ({ colourType }) => {
     const [waveEl, setWaveEl] = useRecoilState(wave)
     const [colours, setColours] = useRecoilState(gradientColours)
+    const [bgColourEl, setBgColourEl] = useRecoilState(backgroundColour)
 
     const handleColour = (target, value) => {
         switch (target) {
@@ -38,16 +39,33 @@ export const ColourPicker = ({ colourType }) => {
                         value={colours.colour2}
                         onChange={(e) => handleColour(2, e.target.value)}
                     />
+                    <input
+                        type="color"
+                        name="bgcolour"
+                        className="w-50"
+                        value={bgColourEl}
+                        onChange={(e) => setBgColourEl(e.target.value)}
+                    />
                 </>
             ) : (
                 <div className="flex flex-col justify-center items-center w-full">
-                    <input
-                        type="color"
-                        name="colour"
-                        className="mb-3"
-                        value={waveEl.fillColour}
-                        onChange={(e) => handleColour(0, e.target.value)}
-                    />
+                    <div>
+                        <input
+                            type="color"
+                            name="colour"
+                            className="mb-3"
+                            value={waveEl.fillColour}
+                            onChange={(e) => handleColour(0, e.target.value)}
+                        />
+                        <input
+                            type="color"
+                            name="bgcolour"
+                            className="w-50"
+                            value={bgColourEl}
+                            onChange={(e) => setBgColourEl(e.target.value)}
+                        />
+                    </div>
+
                     <HarmonyPicker />
                 </div>
             )}
