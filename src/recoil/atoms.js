@@ -75,7 +75,7 @@ const flipY = atom({
 const themeColours = atom({
     key: 'themeColourKey',
     default: {
-        light: 'rgba(247, 127, 190, .5)',
+        light: 'rgb(255, 255, 255)',
         dark: '#1c1c1c'
     }
 })
