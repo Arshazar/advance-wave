@@ -18,7 +18,8 @@ export const Select = ({ data, children }) => {
                                     : ''
                             }`}
                             style={{
-                                background: dataType === el.name ? `#00a693` : 'rgba(0,0,0,.2)',
+                                background: dataType === el.name ? `#1e90ff` : 'rgba(0,0,0,.2)',
+                                borderColor: 'rgba(0,0,0,.2)',
                                 width: `calc(100% / ${elements.length})`
                             }}
                             onClick={el.onClick}>

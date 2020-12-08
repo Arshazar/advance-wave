@@ -15,7 +15,8 @@ const wave = atom({
         ratio: {
             height: 500,
             width: 1440
-        }
+        },
+        degree: 10
     }
 })
 

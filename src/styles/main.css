@@ -36,7 +36,7 @@ body {
     scrollbar-width: none;
     top: 1.75em;
     left: 0.75em;
-    position: abolute;
+    position: absolute;
     max-height: 90vh;
     background: rgba(255,255,255,.25);
 }
@@ -79,11 +79,13 @@ input[type='range'] {
     height: 26px;
     cursor: pointer;
     outline: none;
+    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 40px; /* iOS */
 }
 
 input[type='range']::-webkit-slider-runnable-track {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 /*
@@ -93,29 +95,37 @@ input[type='range']::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 22px; /* 1 */
     height: 22px;
-    background: #00a693;
-    box-shadow: -100vw 0 0 calc(100vw - 13px) #00a693;
+    background: white;
+    box-shadow: -3px 0 3px rgba(0, 0, 0, 0.1), -100vw 0 0 calc(100vw - 13px) #fff;
     /* border: 3px solid #fff; 1 */
     border-radius: 50%;
 }
 
 input[type='range']::-moz-range-track {
     height: 22px;
-    background: #ddd;
+    background: rgba(0,0,0,0.1);
 }
 
 input[type='range']::-moz-range-thumb {
-    background: #00a693;
+    background: white;
     height: 22px;
     width: 22px;
-    border: 3px solid #999;
+    border: 1px solid white;
     border-radius: 50% !important;
-    box-shadow: -100vw 0 0 calc(100vw - 13px) #00a693;
+    box-shadow: -3px 0 3px rgba(0, 0, 0, 0.1), -100vw 0 0 calc(100vw - 13px) #fff;
     box-sizing: border-box;
 }
 
+input[type='range']::-moz-range-progress {
+    background: #fff;
+}
+
 input[type='range']::-ms-fill-lower {
-    background: #00a693;
+    background: #fff;
+}
+
+input[type='range']::-ms-fill-upper {
+    background: rgba(0,0,0,0.1);
 }
 
 input[type='range']::-ms-thumb {
@@ -123,6 +133,7 @@ input[type='range']::-ms-thumb {
     /* border: 3px solid #999; */
     height: 22px;
     width: 22px;
+    box-shadow: -3px 0 3px rgba(0, 0, 0, 0.1), -100vw 0 0 calc(100vw - 13px) #fff;
     box-sizing: border-box;
 }
 
@@ -135,7 +146,7 @@ input[type='range']::-ms-ticks-before {
 }
 
 input[type='range']::-ms-track {
-    background: #ddd;
+    background: #fff;
     color: transparent;
     height: 22px;
     border: none;

@@ -10,7 +10,6 @@ import {
     themeColours,
     flipX,
     flipY,
-    harmonyColours,
     maxLayers
 } from '../../recoil/atoms'
 import { Select } from './select'
@@ -118,17 +117,17 @@ export const Toolbar = () => {
                 </div> */}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 relative p-2 m-1">
-                    <div className="rounded-2xl p-2" style={{ background: 'rgba(255,255,255,.8)' }}>
+                    <div className="rounded-2xl p-2" style={{ background: '#e4e4e5' }}>
                         <Select data={waveData} />
                     </div>
                     <div
                         className="flex justify-center items-center rounded-2xl p-2 h-12"
-                        style={{ background: 'rgba(255,255,255,.8)' }}>
+                        style={{ background: '#e4e4e5' }}>
                         <label htmlFor="waves" className="text-sm text-left m-auto mr-1">
                             Waves
                         </label>
                         <input
-                            className="w-3/4 h-5 overflow-hidden text-center rounded-lg appearance-none dark:text-black border-2 text-black"
+                            className="w-3/4 h-6 overflow-hidden text-center rounded-lg appearance-none dark:text-black border-2 text-black"
                             value={waveEl.segmentCount}
                             onChange={(e) => onChange('segment', e.target.value)}
                             type="text"
@@ -139,7 +138,7 @@ export const Toolbar = () => {
 
                     <div
                         className="flex justify-center my-3 rounded-2xl p-2 m-0"
-                        style={{ background: 'rgba(255,255,255,.8)' }}>
+                        style={{ background: '#e4e4e5' }}>
                         <label htmlFor="height" className="text-sm text-left m-auto mr-1">
                             Height
                         </label>
@@ -157,7 +156,7 @@ export const Toolbar = () => {
                     </div>
                     <div
                         className="flex justify-center my-3 p-2 rounded-2xl m-1"
-                        style={{ background: 'rgba(255,255,255,.8)' }}>
+                        style={{ background: '#e4e4e5' }}>
                         <label htmlFor="layer" className="text-sm text-left m-auto mr-1">
                             Layers
                         </label>
@@ -177,7 +176,7 @@ export const Toolbar = () => {
                     </div>
                     <div
                         className="flex justify-center my-3 rounded-2xl p-2 m-1"
-                        style={{ background: 'rgba(255,255,255,.8)' }}>
+                        style={{ background: '#e4e4e5' }}>
                         <label htmlFor="degree" className="text-sm text-left m-auto">
                             FlipX
                         </label>
@@ -195,7 +194,7 @@ export const Toolbar = () => {
                     </div>
                     <div
                         className="flex justify-center my-3 rounded-2xl p-2 m-1"
-                        style={{ background: 'rgba(255,255,255,.8)' }}>
+                        style={{ background: '#e4e4e5' }}>
                         <label htmlFor="degree" className="text-sm text-left m-auto">
                             FlipY
                         </label>
@@ -211,7 +210,7 @@ export const Toolbar = () => {
                             max={1}
                         />
                     </div>
-                    <div className="rounded-2xl p-2" style={{ background: 'rgba(255,255,255,.8)' }}>
+                    <div className="rounded-2xl p-2" style={{ background: '#e4e4e5' }}>
                         <Select
                             data={colourData}
                             children={

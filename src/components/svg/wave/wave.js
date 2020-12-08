@@ -4,6 +4,7 @@ const svgns = 'http://www.w3.org/2000/svg'
 // layercount is default to 2. Increasing the number would stack up n-1 waves.
 function generatePoints(width, height, segmentCount, layerCount, variance, ratio) {
     const cellWidth = width / segmentCount
+
     const cellHeight = ratio.height - Number(height)
     const moveLimitX = cellWidth * variance * 0.5
     const moveLimitY = cellHeight * variance
@@ -20,8 +21,8 @@ function generatePoints(width, height, segmentCount, layerCount, variance, ratio
         pointsPerLayer.push({ x: 0, y: Math.floor(y) })
         for (let x = cellWidth; x < width; x += cellWidth) {
             //@anup: this decides whether a segment is crest or trough
-            const varietalY = y - moveLimitY / 4 + Math.random() * moveLimitY
-            const varietalX = x - moveLimitX / 4 + Math.random() * moveLimitX
+            const varietalY = y - moveLimitY / 2 + Math.random() * moveLimitY
+            const varietalX = x - moveLimitX / 2 + Math.random() * moveLimitX
             pointsPerLayer.push({
                 x: Math.floor(varietalX),
                 y: Math.floor(varietalY)
@@ -30,21 +31,7 @@ function generatePoints(width, height, segmentCount, layerCount, variance, ratio
         pointsPerLayer.push({ x: width, y: Math.floor(y) })
         points.push(pointsPerLayer)
     }
-    // for (let y = cellHeight; y < height; y += cellHeight) {
-    //     let pointsPerLayer = []
-    //     pointsPerLayer.push({ x: 0, y: Math.floor(y) })
-    //     for (let x = cellWidth; x < width; x += cellWidth) {
-    //         //@anup: this decides whether a segment is crest or trough
-    //         const varietalY = y - moveLimitY / 2 + Math.random() * moveLimitY
-    //         const varietalX = x - moveLimitX / 2 + Math.random() * moveLimitX
-    //         pointsPerLayer.push({
-    //             x: Math.ceil(varietalX),
-    //             y: Math.ceil(varietalY)
-    //         })
-    //     }
-    //     pointsPerLayer.push({ x: width, y: Math.floor(y) })
-    //     points.push(pointsPerLayer)
-    // }
+
     return points
 }
 
@@ -98,7 +85,7 @@ export class Wavery {
     constructor(properties) {
         this.properties = { ...properties }
         this.points = generatePoints(
-            this.properties.width,
+            this.properties.ratio.width,
             this.properties.height,
             this.properties.segmentCount,
             this.properties.layerCount,
@@ -116,7 +103,7 @@ export class Wavery {
                 generateClosedPath(
                     this.points[i],
                     { x: 0, y: this.properties.ratio.height },
-                    { x: this.properties.width, y: this.properties.ratio.height },
+                    { x: this.properties.ratio.width, y: this.properties.ratio.height },
                     this.properties.fillColour,
                     this.properties.strokeColour,
                     this.properties.strokeWidth,
@@ -127,7 +114,7 @@ export class Wavery {
 
         const svgData = {
             svg: {
-                width: this.properties.width,
+                width: this.properties.ratio.width,
                 height: this.properties.ratio.height,
                 xmlns: svgns,
                 path: pathList
