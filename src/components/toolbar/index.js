@@ -105,7 +105,7 @@ export const Toolbar = () => {
 
     return (
         <div
-            className={`fixed bg-transparent box-border rounded-2xl z-50 w-5/6 md:w-1/2 lg:w-1/3 toolbar${
+            className={`fixed bg-transparent box-border rounded-2xl z-50 w-5/6 sm:w-1/2 lg:w-1/3 toolbar${
                 open ? ' open' : ''
             }`}>
             <div className="relative">
@@ -114,22 +114,22 @@ export const Toolbar = () => {
                         {closeSvg}
                     </p>
                 </div> */}
-                {/* grid grid-cols-1 md:grid-cols-2 gap-1 */}
-                <div className="flex flex-wrap relative">
-                    <div className="w-1/2 p-1">
+                {/* grid grid-cols-1 sm:grid-cols-2 gap-1 */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 relative">
+                    <div className="w-full p-2 sm:pr-1 pb-1">
                         <div
-                            className="rounded-2xl pb-1 pt-3 px-1 m-1 w-full"
+                            className="rounded-2xl w-full p-2"
                             style={{ background: 'rgba(255, 255, 255, 0.4)' }}>
                             <Select data={waveData} />
                             <div className="h-1/2 mt-5">
                                 {/* <input
-                            className="w-3/4 h-6 overflow-hidden text-center rounded-lg appearance-none dark:text-black border-2 text-black"
-                            value={waveEl.segmentCount}
-                            onChange={(e) => onChange('segment', e.target.value)}
-                            type="text"
-                            id="waves"
-                            name="waves"
-                        /> */}
+                                    className="w-3/4 h-6 overflow-hidden text-center rounded-lg appearance-none dark:text-black border-2 text-black"
+                                    value={waveEl.segmentCount}
+                                    onChange={(e) => onChange('segment', e.target.value)}
+                                    type="text"
+                                    id="waves"
+                                    name="waves"
+                                /> */}
                                 <label htmlFor="waves" className="text-sm text-left ml-1">
                                     Waves
                                 </label>
@@ -147,10 +147,10 @@ export const Toolbar = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-1/2 p-3 pl-1 py-1">
+                    <div className="p-2 sm:pl-1 pb-1 w-full">
                         <div className="w-full">
                             <div
-                                className="flex flex-col justify-center my-1 rounded-2xl p-2 m-1 w-full"
+                                className="flex flex-col justify-center mb-1 rounded-2xl p-2 w-full"
                                 style={{ background: 'rgba(255, 255, 255, 0.4)' }}>
                                 <label htmlFor="height" className="text-sm text-left m-auto ml-1">
                                     Height
@@ -170,7 +170,7 @@ export const Toolbar = () => {
                         </div>
                         <div className="w-full mt-2">
                             <div
-                                className="flex flex-col justify-center my-1 p-2 rounded-2xl m-1 w-full"
+                                className="flex flex-col justify-center p-2 rounded-2xl w-full"
                                 style={{ background: 'rgba(255, 255, 255, 0.4)' }}>
                                 <label htmlFor="layer" className="text-sm text-left m-auto ml-1">
                                     Layers
@@ -194,9 +194,9 @@ export const Toolbar = () => {
                         </div>
                     </div>
 
-                    <div className="w-1/2 p-1">
+                    <div className="p-2 pt-0 sm:pr-1 pb-1 w-full">
                         <div
-                            className="flex flex-col justify-center my-1 rounded-2xl p-2 m-1 w-full"
+                            className="flex flex-col justify-center my-1 rounded-2xl p-2 w-full"
                             style={{ background: 'rgba(255, 255, 255, 0.4)' }}>
                             <label htmlFor="degree" className="text-sm text-left m-auto ml-1">
                                 FlipX
@@ -214,9 +214,9 @@ export const Toolbar = () => {
                             />
                         </div>
                     </div>
-                    <div className="w-1/2 p-3 pl-1 py-1">
+                    <div className="p-2 pt-0 sm:pl-1 pb-1 w-full">
                         <div
-                            className="flex flex-col justify-center my-1 rounded-2xl p-2 m-1 w-full"
+                            className="flex flex-col justify-center my-1 rounded-2xl p-2 w-full"
                             style={{ background: 'rgba(255, 255, 255, 0.4)' }}>
                             <label htmlFor="degree" className="text-sm text-left m-auto ml-1">
                                 FlipY
@@ -234,7 +234,7 @@ export const Toolbar = () => {
                             />
                         </div>
                     </div>
-                    <div className="w-1/2 p-2 pr-1 pt-1">
+                    <div className="w-full p-2 pt-0 sm:pr-1">
                         <div
                             className="rounded-2xl p-2"
                             style={{ background: 'rgba(255, 255, 255, 0.4)' }}>
@@ -249,10 +249,8 @@ export const Toolbar = () => {
                             />
                         </div>
                     </div>
-                    <div className="w-1/2 p-3 pl-1 pt-1">
-                        <div className="pl-1">
-                            <Download />
-                        </div>
+                    <div className="p-2 sm:pl-1 pt-0">
+                        <Download />
                     </div>
                 </div>
             </div>
