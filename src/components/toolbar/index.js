@@ -118,13 +118,10 @@ export const Toolbar = () => {
                 <div className="flex flex-wrap relative">
                     <div className="w-1/2 p-1">
                         <div
-                            className="rounded-2xl py-1 px-1 m-1 w-full"
+                            className="rounded-2xl pb-1 pt-3 px-1 m-1 w-full"
                             style={{ background: 'rgba(255, 255, 255, 0.4)' }}>
-                            <label htmlFor="waves" className="text-sm text-left mb-2 ml-1">
-                                Wave Type
-                            </label>
                             <Select data={waveData} />
-                            <div className="h-1/2 mt-2">
+                            <div className="h-1/2 mt-5">
                                 {/* <input
                             className="w-3/4 h-6 overflow-hidden text-center rounded-lg appearance-none dark:text-black border-2 text-black"
                             value={waveEl.segmentCount}
