@@ -4,16 +4,16 @@ const wave = atom({
     key: 'waveDataKey',
     default: {
         type: 'smooth',
-        height: 500,
+        height: 300,
         width: 1440,
         segmentCount: 4,
-        layerCount: 3,
+        layerCount: 2,
         variance: 0.75,
         strokeWidth: 0,
         fillColour: '#c360fc',
         strokeColour: 'none',
         ratio: {
-            height: 500,
+            height: 1024,
             width: 1440
         },
         degree: 10

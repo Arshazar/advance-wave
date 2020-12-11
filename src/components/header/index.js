@@ -12,7 +12,10 @@ export const Header = () => {
             <div
                 className="absolute right-0 italic text-sm tracking-widest cursor-default hidden md:block mr-2"
                 style={{ color: themeEl === 'light' ? '#000' : '#fff' }}>
-                Coded with full of ❤ by Arshazar
+                Coded with full of ❤ by{' '}
+                <a target="_blank" href="https://linkedin.com/in/arshavir-azarfar">
+                    Arshazar
+                </a>
             </div>
         </div>
     )

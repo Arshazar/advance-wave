@@ -56,8 +56,8 @@ export default function Home() {
         <FullScreen handle={handleFscreen} onChange={reportFscreen}>
             <div>
                 <Head>
-                    <title>Advance Wave</title>
-                    <link rel="icon" href="/favicon.ico" />
+                    <title>Wavelry</title>
+                    <link rel="icon" href="/favicon2.ico" />
                 </Head>
                 <main
                     className="flex flex-col h-screen"
