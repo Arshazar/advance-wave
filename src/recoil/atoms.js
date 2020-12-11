@@ -93,7 +93,7 @@ const harmonyColours = atom({
 
 const backgroundColour = atom({
     key: 'backgroundColourKey',
-    default: 'transparent'
+    default: '#000'
 })
 
 const fullScreenState = atom({
