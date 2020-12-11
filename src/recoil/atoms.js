@@ -83,7 +83,7 @@ const themeColours = atom({
 
 const maxLayers = atom({
     key: 'maxLayersKey',
-    default: 10
+    default: 6
 })
 
 const harmonyColours = atom({
