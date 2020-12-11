@@ -34,16 +34,16 @@ export const HarmonyPicker = () => {
 
     return (
         <div className="m-auto w-full">
-            <div className="m-auto w-full">
+            <div className="m-auto w-full mt-2">
                 <Select data={coloursData} />
             </div>
             {colourType === 'harmony' ? (
-                <div className="flex justify-center my-3 w-full">
-                    <label htmlFor="harmonyType" className="text-sm text-left m-auto">
+                <div className="flex flex-col justify-center my-1 w-full">
+                    <label htmlFor="harmonyType" className="text-sm text-left m-auto ml-1">
                         Type
                     </label>
                     <input
-                        className="w-3/4 h-full overflow-hidden text-center rounded-lg appearance-none border-2 range-input"
+                        className="w-full h-full overflow-hidden text-center rounded-lg appearance-none border-2 range-input"
                         value={harmonyTypeEl}
                         onChange={(e) => setHarmonyType(e.target.value)}
                         type="range"

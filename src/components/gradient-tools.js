@@ -28,12 +28,12 @@ export const GradientTools = ({ colourType }) => {
         <div className="w-full m-auto">
             <Select data={gradData} />
             {gradType === 'linear' ? (
-                <div className="flex justify-center my-3 w-full">
-                    <label htmlFor="gradAngle" className="text-sm text-left m-auto">
+                <div className="flex flex-col justify-center my-3 w-full">
+                    <label htmlFor="gradAngle" className="text-sm text-left ml-1">
                         Angle
                     </label>
                     <input
-                        className="w-3/5 h-full overflow-hidden text-center rounded-lg appearance-none border-2 range-input"
+                        className="w-full h-full overflow-hidden text-center rounded-lg appearance-none border-2 range-input"
                         value={gradAngle}
                         onChange={(e) => setGradAngle(e.target.value)}
                         type="range"
@@ -45,12 +45,12 @@ export const GradientTools = ({ colourType }) => {
                     />
                 </div>
             ) : (
-                <div className="flex justify-center my-3 w-full">
-                    <label htmlFor="gradRadius" className="text-sm text-left m-auto">
+                <div className="flex flex-col justify-center my-3 w-full">
+                    <label htmlFor="gradRadius" className="text-sm text-left ml-1">
                         Radius
                     </label>
                     <input
-                        className="w-3/5 h-full overflow-hidden text-center rounded-lg appearance-none border-2 range-input"
+                        className="w-full h-full overflow-hidden text-center rounded-lg appearance-none border-2 range-input"
                         value={gradRadius}
                         onChange={(e) => setGradRadius(e.target.value)}
                         type="range"

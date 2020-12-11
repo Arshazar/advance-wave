@@ -35,18 +35,18 @@ export default function Home() {
         [handleFscreen]
     )
 
-    useEffect(() => {
-        const date = new Date()
-        const mins = date.getHours() * 60 + date.getMinutes()
+    // useEffect(() => {
+    //     const date = new Date()
+    //     const mins = date.getHours() * 60 + date.getMinutes()
 
-        if (mins > 1110 || mins < 390) {
-            setThemeEl('dark')
-            setBgColourEl(themeColoursEl.dark)
-        } else {
-            setThemeEl('light')
-            setBgColourEl(themeColoursEl.light)
-        }
-    }, [])
+    //     if (mins > 1110 || mins < 390) {
+    //         setThemeEl('dark')
+    //         setBgColourEl(themeColoursEl.dark)
+    //     } else {
+    //         setThemeEl('light')
+    //         setBgColourEl(themeColoursEl.light)
+    //     }
+    // }, [])
 
     const wavery = new Wavery(waveEl)
     const generatedSvg = wavery.generateSvg()

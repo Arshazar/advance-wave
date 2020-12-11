@@ -36,7 +36,7 @@ export const Download = () => {
         <div
             id="links"
             className="flex h-40 flex-col relative items-center p-2 m-0 rounded-2xl"
-            style={{ background: 'rgba(255,255,255,.8)' }}>
+            style={{ background: 'rgba(255,255,255,.4)' }}>
             <p className="cursor-default">Save as:</p>
             <div className="flex justify-around">
                 <div className="m-3 cursor-pointer" onClick={() => downloadSvg()}>

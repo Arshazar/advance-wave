@@ -3,7 +3,7 @@ import React from 'react'
 export const Select = ({ data, children }) => {
     const { elements, dataType } = data
     return (
-        <div className="flex flex-col justify-center w-full my-3">
+        <div className="flex flex-col justify-center w-full h-full">
             <div className="flex border-2 rounded-lg">
                 {elements.map((el, i) => {
                     return (
@@ -19,6 +19,7 @@ export const Select = ({ data, children }) => {
                             }`}
                             style={{
                                 background: dataType === el.name ? `#1e90ff` : 'rgba(0,0,0,.2)',
+                                color: dataType === el.name ? `#fff` : '#000',
                                 borderColor: 'rgba(0,0,0,.2)',
                                 width: `calc(100% / ${elements.length})`
                             }}

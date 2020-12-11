@@ -4,13 +4,13 @@ const wave = atom({
     key: 'waveDataKey',
     default: {
         type: 'smooth',
-        height: 300,
+        height: 500,
         width: 1440,
         segmentCount: 4,
-        layerCount: 1,
+        layerCount: 3,
         variance: 0.75,
         strokeWidth: 0,
-        fillColour: '#32127a',
+        fillColour: '#c360fc',
         strokeColour: 'none',
         ratio: {
             height: 500,
@@ -22,7 +22,7 @@ const wave = atom({
 
 const colourMode = atom({
     key: 'colourModeKey',
-    default: 'colour'
+    default: 'gradient'
 })
 
 const oneColourMode = atom({
@@ -55,12 +55,12 @@ const gradientRadius = atom({
 
 const expanderOpen = atom({
     key: 'expanderStatusKey',
-    default: false
+    default: true
 })
 
 const theme = atom({
     key: 'themeKey',
-    default: 'light'
+    default: 'dark'
 })
 
 const flipX = atom({
