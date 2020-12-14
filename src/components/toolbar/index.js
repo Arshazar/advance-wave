@@ -105,7 +105,7 @@ export const Toolbar = () => {
 
     return (
         <div
-            className={`fixed bg-transparent box-border rounded-2xl z-50 w-5/6 sm:w-1/2 lg:w-1/3 toolbar${
+            className={`fixed bg-transparent box-border rounded-2xl z-50 w-5/6 sm:w-2/3 md:w-1/2 lg:w-1/3 toolbar${
                 open ? ' open' : ''
             }`}>
             <div className="relative">
