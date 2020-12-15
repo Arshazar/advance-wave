@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { theme } from '../../recoil/atoms'
+import { wave, colourMode } from '../../recoil/atoms'
 import { useRecoilState } from 'recoil'
 
 export const CopySvg = () => {
-    const [themeEl, setThemeEl] = useRecoilState(theme)
+    const [waveEl, setWaveEl] = useRecoilState(wave)
+    const [colourModeEl, setColourModeEl] = useRecoilState(colourMode)
     const [svgcode, setSvgcode] = useState('')
     const [isCopied, setCopied] = useState(false)
 
@@ -12,7 +13,7 @@ export const CopySvg = () => {
             const code = document.getElementById('my-svg').outerHTML
             setSvgcode(code)
         }
-    }, [])
+    }, [waveEl, colourModeEl])
 
     const copyOn = () => {
         navigator.clipboard.writeText(svgcode)
