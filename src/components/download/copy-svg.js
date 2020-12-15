@@ -1,10 +1,31 @@
 import React, { useEffect, useState } from 'react'
-import { wave, colourMode } from '../../recoil/atoms'
+import {
+    wave,
+    harmonyColours,
+    gradientColours,
+    gradientType,
+    colourMode,
+    oneColourMode,
+    gradientAngle,
+    gradientRadius,
+    flipX,
+    flipY,
+    backgroundColour
+} from '../../recoil/atoms'
 import { useRecoilState } from 'recoil'
 
 export const CopySvg = () => {
     const [waveEl, setWaveEl] = useRecoilState(wave)
     const [colourModeEl, setColourModeEl] = useRecoilState(colourMode)
+    const [harmonyColoursEl, setHarmonyColoursEl] = useRecoilState(harmonyColours)
+    const [gradientColoursEl, setGradientColoursEl] = useRecoilState(gradientColours)
+    const [gradientTypeEl, setGradientTypeEl] = useRecoilState(gradientType)
+    const [oneColourModeEl, setOneColourModeEl] = useRecoilState(oneColourMode)
+    const [gradientAngleEl, setGradientAngleEl] = useRecoilState(gradientAngle)
+    const [gradientRadiusEl, setGradientRadiusEl] = useRecoilState(gradientRadius)
+    const [flipXEl, setFlipXEl] = useRecoilState(flipX)
+    const [flipYEl, setFlipYEl] = useRecoilState(flipY)
+    const [backgroundColourEl, setBackgroundColourEl] = useRecoilState(backgroundColour)
     const [svgcode, setSvgcode] = useState('')
     const [isCopied, setCopied] = useState(false)
 
@@ -13,7 +34,19 @@ export const CopySvg = () => {
             const code = document.getElementById('my-svg').outerHTML
             setSvgcode(code)
         }
-    }, [waveEl, colourModeEl])
+    }, [
+        waveEl,
+        colourModeEl,
+        harmonyColoursEl,
+        gradientColoursEl,
+        gradientTypeEl,
+        oneColourModeEl,
+        gradientAngleEl,
+        gradientRadiusEl,
+        flipXEl,
+        flipYEl,
+        backgroundColourEl
+    ])
 
     const copyOn = () => {
         navigator.clipboard.writeText(svgcode)
